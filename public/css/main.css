@@ -1,0 +1,22 @@
+.index-con{
+    margin-top:70px;
+}
+.login-item{
+    background: #eee;
+    padding:10px 20px;
+    border-radius: 6px;
+}
+.login-item label{
+    margin-top:10px;
+}
+.login-item button{
+    margin-top:20px;
+    margin-bottom: 15px;
+}
+.login-item .regist{
+    text-align: right;
+}
+.colWarning{
+    text-align: center;
+    color: red;
+}

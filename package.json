@@ -1,0 +1,30 @@
+{
+  "name": "blog2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^2.5.0",
+    "async-each": "^1.0.1",
+    "body-parser": "^1.17.2",
+    "cookies": "^0.7.1",
+    "express": "^4.15.4",
+    "hooks-fixed": "^2.0.0",
+    "kareem": "^1.5.0",
+    "markdown": "^0.5.0",
+    "mongoose": "^4.11.9",
+    "mpath": "^0.3.0",
+    "mpromise": "^0.5.5",
+    "mquery": "^2.3.1",
+    "muri": "^1.2.2",
+    "regexp-clone": "^0.0.1",
+    "resolve-from": "^3.0.0",
+    "semver": "^5.4.1",
+    "swig": "^1.4.2"
+  }
+}

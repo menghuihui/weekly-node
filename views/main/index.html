@@ -1,0 +1,76 @@
+{% extends '../common/layout.html'%}
+{% block title %}首页{% endblock %}
+{% block css %}
+{% parent %}
+<link rel="stylesheet" href="/public/css/main.css">
+{% endblock %}
+{% block content %}
+{% parent %}
+<div class="container index-con">
+
+    <div class="row row-offcanvas row-offcanvas-right">
+
+        <div class="col-xs-12 col-sm-9">
+            {% for content in contents%}
+            <div class="jumbotron">
+                <h4>{{content.title}}</h4>
+                <p>{{content.con}}</p>
+            </div>
+            {% endfor %}
+        </div><!--/.col-xs-12.col-sm-9-->
+
+        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+            <div class="login-item loginCon" {% if userInfo.id %} style="display: none;" {%endif%}>
+                <h4 class="form-signin-heading">登录</h4>
+                <label for="inputEmail" class="">用户名：</label>
+                <input type="text" id="inputEmail" name="username" class="form-control" placeholder="请输入用户名" required autofocus>
+                <label for="inputPassword" class="">密码：</label>
+                <input type="password" id="inputPassword" name="password" class="form-control" placeholder="请输入密码" required>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">登&nbsp;录</button>
+                <div class="regist">还没注册？<a href="javascript:void(0);" onclick="js_regist()">马上注册</a></div>
+                <div class="colWarning"></div>
+            </div>
+            <div class="login-item registCon" style="display: none;">
+                <h4 class="form-signin-heading">注册</h4>
+                <label for="inputEmail" class="">用户名：</label>
+                <input type="text" name="username" class="form-control" placeholder="请输入用户名" required autofocus>
+                <label for="inputPassword" class="">密码：</label>
+                <input type="password" name="password" class="form-control" placeholder="请输入密码" required>
+                <label for="inputPassword" class="">确认：</label>
+                <input type="password" name="okpassword" class="form-control" placeholder="请输入确认密码" required>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">注&nbsp;册</button>
+                <div class="regist">已有账号？<a href="javascript:void(0);" onclick="js_login()">马上登录</a></div>
+                <div class="colWarning"></div>
+            </div>
+            <div class="login-item userinfoCon" {% if !userInfo.id %} style="display: none;" {%endif%}>
+                <h4 class="form-signin-heading">用户信息</h4>
+                <label class="user">用户名：<span>{{userInfo.username}}</span></label>
+                {% if !userInfo.isAdmin %}
+                    <div><a class="btn btn-default btn-info" href="/weekly/add" role="button">添加周报</a></div>
+                {% else %}
+                    <div>你好，你是管理员<a href="/admin">你可以点击这里进入管理</a></div>
+                {% endif %}
+                <div class="regist"><a href="javascript:void(0);" onclick="js_pullOut()">退出</a></div>
+            </div>
+            <!--<div class="sidebar-module">-->
+                <!--<h4>社区</h4>-->
+                <!--<ol class="list-unstyled">-->
+                    <!--<li><a href="#">社区链接</a></li>-->
+                    <!--<li><a href="#">社区链接</a></li>-->
+                    <!--<li><a href="#">社区链接</a></li>-->
+                    <!--<li><a href="#">社区链接</a></li>-->
+                <!--</ol>-->
+            <!--</div>-->
+            </div>
+        </div><!--/.sidebar-offcanvas-->
+    </div><!--/row-->
+
+    <!--<footer>-->
+        <!--<p>&copy; Company 2014</p>-->
+    <!--</footer>-->
+</div>
+{% endblock %}
+{% block script %}
+{% parent %}
+<script src="/public/js/main/index.js"></script>
+{% endblock %}

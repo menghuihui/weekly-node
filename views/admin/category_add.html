@@ -1,0 +1,30 @@
+{% extends '../common/layout.html'%}
+{% block title %}博客后台管理{% endblock %}
+{% block css %}
+{% parent %}
+<link rel="stylesheet" href="/public/css/main.css">
+{% endblock %}
+{% block content %}
+{% include "../common/admin_nav.html"%}
+<ol class="breadcrumb">
+    <li><a href="/">管理首页</a></li>
+    <li><span>添加分类</span></li>
+</ol>
+<h1>添加分类</h1>
+<form method="post">
+    <div class="form-group">
+        <label for="name">分类名称：</label>
+        <input type="text" class="form-control" placeholder="请输入分类名称" name="name" value="{{categorys.name}}">
+    </div>
+    <div class="form-group">
+        <label for="url">分类路径：</label>
+        <input type="text" class="form-control" placeholder="请输入分类路径" name="url" value="{{categorys.url}}">
+    </div>
+    <button type="submit" class="btn btn-default">保存</button>
+</form>
+<p>{{message}}</p>
+{% endblock %}
+{% block script %}
+{% parent %}
+<script src="/public/js/admin/index.js"></script>
+{% endblock %}

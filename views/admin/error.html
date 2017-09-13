@@ -1,0 +1,30 @@
+{% extends '../common/layout.html'%}
+{% block title %}博客后台管理{% endblock %}
+{% block css %}
+{% parent %}
+<link rel="stylesheet" href="/public/css/main.css">
+{% endblock %}
+{% block content %}
+{% include "../common/admin_nav.html"%}
+<div class="container-fluid">
+    <div class="jumbotron">
+        <h1>{% if error %}错误提示{% else%}成功提示{% endif %}</h1>
+
+        <div class="panel {% if error %} panel-danger{% else%} panel-success{% endif %}">
+            <div class="panel-heading">
+                <h3 class="panel-title">提示</h3>
+            </div>
+            <div class="panel-body">
+                {{message}}
+            </div>
+            <div class="panel-footer">
+                <a href="{% if !hrefurl %}javascript:window.history.back();{% else %}{{hrefurl}}{% endif %}">返回上一步</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block script %}
+{% parent %}
+<script src="/public/js/admin/index.js"></script>
+{% endblock %}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}首页{% endblock %}</title>
+    {% block css %}
+    <link rel="stylesheet" href="/public/css/common/bootstrap.min.css">
+    <link rel="stylesheet" href="/public/css/common/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/public/css/common/common.css">
+    <link rel="stylesheet" href="/public/font/glyphicons-halflings-regular.ttf">
+    {% endblock %}
+</head>
+<body>
+{% block content %}
+<nav class="navbar navbar-fixed-top navbar-inverse">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">周报</a>
+        </div>
+        <!--<div id="navbar" class="collapse navbar-collapse">-->
+        <!--<ul class="nav navbar-nav">-->
+        <!--{% for categorie in categories %}-->
+        <!--<li class="active"><a href="#">{{categorie.name}}</a></li>-->
+        <!--{% endfor %}-->
+        <!--</ul>-->
+        <!--</div>&lt;!&ndash; /.nav-collapse &ndash;&gt;-->
+    </div><!-- /.container -->
+</nav><!-- /.navbar -->
+{% endblock %}
+{% block script %}
+<script src="/public/js/jquery-3.2.1.min.js"></script>
+<script src="/public/js/bootstrap.min.js"></script>
+{% endblock %}
+</body>
+</html>

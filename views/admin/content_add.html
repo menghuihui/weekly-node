@@ -1,0 +1,39 @@
+{% extends '../common/layout.html'%}
+{% block title %}博客后台管理{% endblock %}
+{% block css %}
+{% parent %}
+<link rel="stylesheet" href="/public/css/main.css">
+{% endblock %}
+{% block content %}
+{% include "../common/admin_nav.html"%}
+<ol class="breadcrumb">
+    <li><a href="/">管理首页</a></li>
+    <li><span>添加分类</span></li>
+</ol>
+<h1>添加内容</h1>
+<form method="post">
+    <select name="category" id="category" class="form-control">
+        {% for category in categories%}
+        <option value="{{category.id}}" {% if contents.category.id == category.id%} selected {% endif%}>{{category.name}}</option>
+        {% endfor %}
+    </select>
+    <div class="form-group">
+        <label for="name">内容标题：</label>
+        <input type="text" class="form-control" placeholder="请输入分类名称" name="title" value="{{contents.title}}">
+    </div>
+    <div class="form-group">
+        <label for="profile">内容简介：</label>
+        <textarea class="form-control" name="profile" id="profile" cols="30" rows="10" placeholder="请输入内容简介">{{contents.profile}}</textarea>
+    </div>
+    <div class="form-group">
+        <label for="url">内容：</label>
+        <textarea class="form-control" name="con" id="con" cols="50" rows="10" placeholder="请输入内容">{{contents.con}}</textarea>
+    </div>
+    <button type="submit" class="btn btn-default">保存</button>
+</form>
+<p>{{message}}</p>
+{% endblock %}
+{% block script %}
+{% parent %}
+<script src="/public/js/admin/index.js"></script>
+{% endblock %}
