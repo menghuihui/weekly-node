@@ -1,16 +1,18 @@
 
 var express = require('express');
 var router = express.Router();
+var User = require('../models/User');
 var Category = require('../models/Category');
 var Content = require('../models/Content');
 
 router.get('/',function (req,res,next) {
-    Content.find().sort({_id:-1}).then(function (contents) {
-        res.render('main/index',{
-            contents: contents,
-            userInfo : req.userInfo,
-        });
-    })
+        Content.find().sort({_id:-1}).then(function (contents) {
+            res.render('main/index',{
+                contents: contents,
+                userInfo : req.userInfo,
+            });
+        })
+
 })
 
 /**
@@ -25,18 +27,20 @@ router.get('/weekly/add',function (req,res,next) {
  * 分类添加
  * */
 router.post('/weekly/add',function (req,res,next) {
+    var userId =  req.userInfo.id;
     var title =  req.body.title;
-    var con =  req.body.con;
-    if( !title || !con){
+    var workweek =  req.body.workweek;
+    var worknweek =  req.body.worknweek;
+    if( !title || !workweek || !worknweek){
     }else{
         //保存分类列表的信息到数据库中
         new Content({
             title : title,
-            con : con
+            user : userId,
+            workweek : workweek,
+            worknweek : worknweek
         }).save().then(function () {
-            Content.find().sort({_id:-1}).then(function (contents) {
-                res.redirect(req.headers.origin);
-            })
+            res.redirect(req.headers.origin + "/admin");
         });
     }
 })
